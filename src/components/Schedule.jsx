@@ -28,6 +28,7 @@ const schedule = [
             },
             {
                 name: 'Tomáš Zahálka',
+                id: 'tomas-zahalka',
                 description: 'Jak se liší marketing ISIS, Talibánu a Al-Káidy?',
                 start: '9:15',
                 end: '10:00',
@@ -39,6 +40,7 @@ const schedule = [
             },
             {
                 name: 'Dalibor Jaroš',
+                id: 'dalibor-jaros',
                 description: 'echo "441 zájemců/měsíc bez HR" > devHiring.txt',
                 start: '10:15',
                 end: '11:00',
@@ -51,6 +53,7 @@ const schedule = [
             },
             {
                 name: 'Jakub Hájek',
+                id: 'jakub-hajek',
                 description: 'Jak udělat dobrý projekt: UX výzkum jako základ úspěchu',
                 start: '12:30',
                 end: '13:15',
@@ -62,6 +65,7 @@ const schedule = [
             },
             {
                 name: 'David Zelenka',
+                id: 'david-zelenka',
                 description: 'Monetizace sociálních sítí pomocí virtuálních influencerů',
                 start: '13:30',
                 end: '14:15',
@@ -74,6 +78,7 @@ const schedule = [
             },
             {
                 name: 'Marian Benčat',
+                id: 'marian-bencat',
                 description: 'Jak se dělá obrovský wysiwyg editor plný dynamických výpočtů a dědění',
                 start: '15:15',
                 end: '16:00',
@@ -85,6 +90,7 @@ const schedule = [
             },
             {
                 name: 'Martin Laudát',
+                id: 'martin-laudat',
                 description: 'Figma na křižovatce osudu',
                 start: '16:15',
                 end: '17:00',
@@ -123,6 +129,7 @@ const schedule = [
             },
             {
                 name: 'Petr Šťastný',
+                id: 'petr-stastny',
                 description: 'Databázový cluster MariaDB Galera',
                 start: '9:15',
                 end: '10:00',
@@ -134,6 +141,7 @@ const schedule = [
             },
             {
                 name: 'Martin Hrabánek',
+                id: 'martin-hrabanek',
                 description: 'Co dělá z brandu lovebrand?',
                 start: '10:15',
                 end: '11:00',
@@ -146,6 +154,7 @@ const schedule = [
             },
             {
                 name: 'Petr Urban',
+                id: 'petr-urban',
                 description: 'Mobilní aplikace: Nativní nebo multiplatformní vývoj?',
                 start: '12:30',
                 end: '13:15',
@@ -180,6 +189,7 @@ const schedule = [
             },
             {
                 name: 'Štefan Földesi',
+                id: 'stefan-foldesi',
                 description: 'Jak se programuje programovací jazyk',
                 start: '16:15',
                 end: '17:00',
@@ -290,6 +300,7 @@ function TimeSlots({day, className}) {
             {day.timeSlots.map((timeSlot, timeSlotIndex) => (
                 <li
                     key={timeSlot.start}
+                    id={timeSlot.id}
                     aria-label={`${timeSlot.name} talking about ${timeSlot.description} at ${timeSlot.start} - ${timeSlot.end}`}
                 >
                     {timeSlotIndex > 0 && (

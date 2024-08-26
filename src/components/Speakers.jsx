@@ -25,60 +25,70 @@ const days = [
         speakers: [
             {
                 name: 'Dalibor Jaroš',
+                url: '#dalibor-jaros',
                 role: 'Výkonný ředitel zahraničních projektů & CEO Collabimu',
                 company: 'INIZIO Internet Media s.r.o.',
                 image: daliborjarosImage,
             },
             {
                 name: 'David Zelenka',
+                url: '#david-zelenka',
                 role: 'Chief Marketing Officer',
                 company: 'Brilo Team',
                 image: davidzelenkaImage,
             },
             {
                 name: 'Jakub Hájek',
+                url: '#jakub-hajek',
                 role: 'Head of UX & Design',
                 company: 'Brilo Team',
                 image: jakubhajekImage,
             },
             {
                 name: 'Marian Benčat',
+                url: '#marian-bencat',
                 role: 'Konzultant a programátor na volné noze',
                 company: '',
                 image: marianbencatImage,
             },
             {
                 name: 'Martin Hrabánek',
+                url: '#martin-hrabanek',
                 role: 'Brand designer',
                 company: 'Brandtastic',
                 image: martinhrabanekImage,
             },
             {
                 name: 'Martin Laudát',
+                url: '#martin-laudat',
                 role: 'Lead Product Designer & Design System Manager',
                 company: 'Dotidot',
                 image: martinlaudatImage,
             },
             {
                 name: 'Petr	Šťastný',
+                url: '#petr-stastny',
                 role: 'DevOps & cloud master na volné noze',
                 company: '',
                 image: petrstastnyImage,
             },
             {
                 name: 'Petr Urban',
+                url: '#petr-urban',
                 role: 'Lead Software Engineer',
                 company: 'JLL',
                 image: petrurbanImage,
             },
             {
                 name: 'Štefan Földesi',
+                url: '#stefan-foldesi',
                 role: 'Product Manager',
                 company: 'GoPay',
                 image: stefanfoldesiImage,
             },
             {
                 name: 'Tomáš Zahálka',
+                url: '#tomas-zahalka',
                 role: 'SEO / PPC specialista pro Shoptet klienty s nízkým pudem sebezáchovy',
                 company: '',
                 image: tomaszahalkaImage,
@@ -156,8 +166,10 @@ export function Speakers() {
                             >
                                 {day.speakers.map((speaker, speakerIndex) => (
                                     <div key={speakerIndex}>
-                                        <div
-                                            className="group relative h-[17.5rem] transform overflow-hidden rounded-4xl">
+                                        <a
+                                            className="block group relative h-[17.5rem] transform overflow-hidden rounded-4xl"
+                                            href={speaker.url}>
+                                             
                                             <div
                                                 className={clsx(
                                                     'absolute bottom-6 left-0 right-4 top-0 rounded-4xl border transition duration-300 group-hover:scale-95 xl:right-6',
@@ -180,7 +192,7 @@ export function Speakers() {
                                                     sizes="(min-width: 1280px) 17.5rem, (min-width: 1024px) 25vw, (min-width: 768px) 33vw, (min-width: 640px) 50vw, 100vw"
                                                 />
                                             </div>
-                                        </div>
+                                        </a>
                                         <h3 className="mt-8 font-display text-xl font-bold tracking-tight text-slate-900">
                                             {speaker.name}
                                         </h3>

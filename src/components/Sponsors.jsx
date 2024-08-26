@@ -14,20 +14,20 @@ import tomasZahalkaLogo from '@/images/partners/tomas-zahalka.png'
 import webstaLogo from '@/images/partners/websta.png'
 
 const generalSponsors = [
-    {name: 'JR Food', logo: jrFoodLogo},
+    {name: 'JR Food', logo: jrFoodLogo,url:'https://jrfood.eu/'},
 ]
 
 const sponsors = [
-    {name: 'Brilo Team', logo: briloLogo},
-    {name: 'E-shop Rychle', logo: eshopRychleLogo},
-    {name: 'Engel', logo: engelLogo},
-    {name: 'Inizio', logo: inizioLogo},
-    {name: 'Marian Benčat', logo: marianBencatLogo},
-    {name: 'NWU', logo: nwuLogo},
-    {name: 'Smart Emailing', logo: smartEmailingLogo},
-    {name: 'TicketsGP', logo: ticketsGpLogo},
-    {name: 'Tomáš Zahálka', logo: tomasZahalkaLogo},
-    {name: 'Websta', logo: webstaLogo},
+    {name: 'Brilo Team', logo: briloLogo,url:'https://www.brilo.team/'},
+    {name: 'E-shop Rychle', logo: eshopRychleLogo,url:'https://www.eshop-rychle.cz/'},
+    {name: 'Engel', logo: engelLogo,url:'https://www.pracevengelu.cz/'},
+    {name: 'Inizio', logo: inizioLogo,url:'https://www.inizio.cz/'},
+    {name: 'Marian Benčat', logo: marianBencatLogo,url:'https://www.linkedin.com/in/marian-ben%C4%8Dat-a832b794'},
+    {name: 'NWU', logo: nwuLogo,url:'https://www.nwu.cz/'},
+    {name: 'Smart Emailing', logo: smartEmailingLogo,url:'https://www.smartemailing.cz/'},
+    {name: 'TicketsGP', logo: ticketsGpLogo,url:'https://www.tickets.gp/'},
+    {name: 'Tomáš Zahálka', logo: tomasZahalkaLogo,url:'https://tomaszahalka.cz/'},
+    {name: 'Websta', logo: webstaLogo,url:'https://websta.cz/'},
 ]
 
 export function Sponsors() {
@@ -40,23 +40,27 @@ export function Sponsors() {
                 <div
                     className="mx-auto mt-20 grid max-w-max grid-cols-1 place-content-center gap-x-32 gap-y-12 sm:grid-cols-3 md:gap-x-16 lg:gap-x-32">
                     {generalSponsors.map((sponsor) => (
-                        <div
+                        <a 
+                            href={sponsor.url}
                             key={sponsor.name}
-                            className="flex items-center justify-center sm:col-start-2"
+                            className="flex items-center justify-center sm:col-start-2 "
+                            target="_blank"
                         >
                             <Image src={sponsor.logo} alt={sponsor.name} unoptimized/>
-                        </div>
+                        </a>
                     ))}
                 </div>
                 <div
                     className="mx-auto mt-20 grid max-w-max grid-cols-1 place-content-center gap-x-32 gap-y-12 sm:grid-cols-5 md:gap-x-16 lg:gap-x-32">
                     {sponsors.map((sponsor) => (
-                        <div
+                        <a
+                            href={sponsor.url}
                             key={sponsor.name}
                             className="flex items-center justify-center"
+                            target="_blank"
                         >
                             <Image src={sponsor.logo} alt={sponsor.name} unoptimized/>
-                        </div>
+                        </a>
                     ))}
                 </div>
             </Container>
