@@ -7,6 +7,7 @@ import clsx from 'clsx'
 import { BackgroundImage } from '@/components/BackgroundImage'
 import { Container } from '@/components/Container'
 import { Section } from '@/components/Section'
+import { Button } from '@/components/Button'
 
 const program = [
   {
@@ -278,7 +279,7 @@ function ScheduleStatic() {
 
 export function Schedule() {
   return (
-    <Section className="relative">
+    <Section className="relative" id="program">
       <Container className="relative z-10">
         <header className="text-center">
           <h2 className="mb-4 font-display text-4xl font-medium tracking-tighter text-primary-600 sm:text-5xl">
@@ -286,10 +287,13 @@ export function Schedule() {
           </h2>
         </header>
       </Container>
-      <div className="relative mt-8 sm:mt-14">
-        <BackgroundImage position="right" className="-bottom-32 -top-40" />
+      <div className="relative mt-8 text-center sm:mt-14">
+        <BackgroundImage position="left" className="-bottom-32 -top-40" />
         <Container className="relative">
           <ScheduleStatic />
+          <Button className="mt-8 cursor-not-allowed" disabled>
+            Koupit vstupenku - již brzy!
+          </Button>
         </Container>
       </div>
     </Section>
