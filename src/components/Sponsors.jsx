@@ -37,7 +37,7 @@ const sponsors = [
 export function Sponsors() {
     return (
         <Section className="relative">
-            <Container>
+            <Container className="px-8">
             <header className='text-center'>
                 <h2 className="font-display text-4xl font-medium tracking-tighter text-primary-600 sm:text-5xl">
                     Partneři
@@ -50,7 +50,7 @@ export function Sponsors() {
                         <a 
                             href={sponsor.url}
                             key={sponsor.name}
-                            className="flex items-center justify-center  max-w-80"
+                            className="flex items-center justify-center  max-w-60"
                             target="_blank"
                         >
                             <Image src={sponsor.logo} alt={sponsor.name} unoptimized/>

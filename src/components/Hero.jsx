@@ -6,12 +6,15 @@ import { Section } from '@/components/Section'
 export function Hero() {
   return (
     <Section className="relative">
-      <BackgroundImage className="pointer-events-none -bottom-14 -top-48" />
+      <BackgroundImage
+        position="right"
+        className="pointer-events-none opacity-75 lg:opacity-100"
+      />
       <Container className="relative">
         <div className="mx-auto flex flex-col items-start gap-6">
-          <h1 className="font-display text-5xl font-bold tracking-tighter text-primary-700 sm:text-6xl xl:text-8xl">
+          <h1 className="font-display text-6xl font-bold leading-9 tracking-tight text-primary-700 lg:text-8xl">
             <span className="sr-only">Čtvrtkon - </span> ČtvrtCON{' '}
-            <span className="text-2xl sm:text-5xl">konference</span>
+            <span className="text-3xl lg:text-5xl">konference</span>
           </h1>
           <div className="flex font-mono">
             <div className="-mx-0 flex flex-col text-lg text-primary-700 sm:flex-row sm:gap-4 sm:text-xl">
