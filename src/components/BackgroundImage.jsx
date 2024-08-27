@@ -7,7 +7,7 @@ export function BackgroundImage({className, position = 'top'}) {
     return (
         <div
             className={clsx(
-                'absolute inset-0 overflow-hidden bg-primary-100',
+                'absolute inset-0 overflow-hidden bg-primary-100 pointer-events-none',
                 className,
             )}
         >
@@ -27,6 +27,7 @@ export function BackgroundImage({className, position = 'top'}) {
                 height={1495}
                 priority
                 unoptimized
+                pointer-events-none
             />
             <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-white pointer-events-none"/>
             <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-white pointer-events-none"/>

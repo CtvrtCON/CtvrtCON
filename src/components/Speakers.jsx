@@ -6,6 +6,7 @@ import {Tab, TabGroup, TabList, TabPanel, TabPanels} from '@headlessui/react'
 import clsx from 'clsx'
 
 import {Container} from '@/components/Container'
+import {Section} from '@/components/Section'
 //import defaultImage from '@/images/avatars/default.webp'
 import daliborjarosImage from '@/images/avatars/daliborjaros.webp'
 import davidzelenkaImage from '@/images/avatars/davidzelenka.webp'
@@ -120,56 +121,36 @@ function ImageClipPaths({id, ...props}) {
 
 export function Speakers() {
     let id = useId()
-    let [tabOrientation, setTabOrientation] = useState('horizontal')
-
-    useEffect(() => {
-        let lgMediaQuery = window.matchMedia('(min-width: 1024px)')
-
-        function onMediaQueryChange({matches}) {
-            setTabOrientation(matches ? 'vertical' : 'horizontal')
-        }
-
-        onMediaQueryChange(lgMediaQuery)
-        lgMediaQuery.addEventListener('change', onMediaQueryChange)
-
-        return () => {
-            lgMediaQuery.removeEventListener('change', onMediaQueryChange)
-        }
-    }, [])
 
     return (
-        <section
-            id="speakers"
-            aria-labelledby="speakers-title"
-            className="py-20 sm:py-32"
-        >
+        <Section className="relative">
+
             <ImageClipPaths id={id}/>
             <Container>
-                <div className="mx-auto max-w-2xl lg:mx-0">
+                <header className='text-center'>
                     <h2
                         id="speakers-title"
                         className="font-display text-4xl font-medium tracking-tighter text-primary-600 sm:text-5xl"
                     >
                         Přednášející
                     </h2>
-                </div>
+                </header>
+
                 <TabGroup
                     className="mt-14 grid grid-cols-1 items-start gap-x-8 gap-y-8 sm:mt-16 sm:gap-y-16 lg:mt-24 lg:grid-cols-4"
-                    vertical={tabOrientation === 'vertical'}
                 >
                     <TabPanels className="lg:col-span-4">
                         {days.map((day) => (
                             <TabPanel
                                 key={day.dateTime}
-                                className="grid grid-cols-1 gap-x-8 gap-y-10 ui-not-focus-visible:outline-none sm:grid-cols-2 sm:gap-y-16 lg:grid-cols-5"
+                                className="grid grid-cols-1 gap-x-10 gap-y-12 ui-not-focus-visible:outline-none xs:gap-y-10 xs:grid-cols-2 lg:grid-cols-5"
                                 unmount={false}
                             >
                                 {day.speakers.map((speaker, speakerIndex) => (
-                                    <div key={speakerIndex}>
+                                    <div key={speakerIndex} className='flex flex-col items-center gap-4'>
                                         <a
-                                            className="block group relative h-[17.5rem] transform overflow-hidden rounded-4xl"
+                                            className="block group w-full max-w-56 relative aspect-square transform overflow-hidden rounded-4xl"
                                             href={speaker.url}>
-                                             
                                             <div
                                                 className={clsx(
                                                     'absolute bottom-6 left-0 right-4 top-0 rounded-4xl border transition duration-300 group-hover:scale-95 xl:right-6',
@@ -193,13 +174,15 @@ export function Speakers() {
                                                 />
                                             </div>
                                         </a>
-                                        <h3 className="mt-8 font-display text-xl font-bold tracking-tight text-slate-900">
-                                            {speaker.name}
-                                        </h3>
-                                        <p className="mt-1 text-base tracking-tight text-slate-500">
-                                            {speaker.role}
-                                            {speaker.company && <span><br/>@ {speaker.company}</span>}
-                                        </p>
+                                        <div className='flex flex-col gap-2 text-center'>
+                                            <h3 className="font-display text-xl font-bold tracking-tight text-primary-600">
+                                                {speaker.name}
+                                            </h3>
+                                            <p className="text-base tracking-tight text-primary-900">
+                                                {speaker.role}
+                                                {speaker.company && <span><br/>@ {speaker.company}</span>}
+                                            </p>
+                                        </div>
                                     </div>
                                 ))}
                             </TabPanel>
@@ -207,6 +190,6 @@ export function Speakers() {
                     </TabPanels>
                 </TabGroup>
             </Container>
-        </section>
+        </Section>
     )
 }
