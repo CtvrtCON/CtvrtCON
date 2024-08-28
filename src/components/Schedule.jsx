@@ -1,354 +1,291 @@
 'use client'
 
-import {useEffect, useState} from 'react'
-import {Tab, TabGroup, TabList, TabPanel, TabPanels} from '@headlessui/react'
-import clsx from 'clsx'
+import { BackgroundImage } from '@/components/BackgroundImage'
+import { Container } from '@/components/Container'
+import { Section } from '@/components/Section'
+import { BuyTicketButton } from '@/components/BuyTicketButton'
 
-import {BackgroundImage} from '@/components/BackgroundImage'
-import {Container} from '@/components/Container'
-
-const schedule = [
-    {
-        date: 'Stage 1',
-        dateTime: '2024-11-23',
-        summary:
-            'Větší sál',
-        timeSlots: [
-            {
-                name: 'Snídaně',
-                description: 'Kdo si přivstane, tak se může nasnídat a pokecat už ráno',
-                start: '8:00',
-                end: '9:00',
-            },
-            {
-                name: 'Úvod',
-                description: 'Úvodní slovo',
-                start: '9:00',
-                end: '9:15',
-            },
-            {
-                name: 'Tomáš Zahálka',
-                description: 'Jak se liší marketing ISIS, Talibánu a Al-Káidy?',
-                start: '9:15',
-                end: '10:00',
-            },
-            {
-                name: 'Pauza',
-                start: '10:00',
-                end: '10:15',
-            },
-            {
-                name: 'Dalibor Jaroš',
-                description: 'echo "441 zájemců/měsíc bez HR" > devHiring.txt',
-                start: '10:15',
-                end: '11:00',
-            },
-            {
-                name: 'Oběd',
-                description: 'Prostor na oběd - někde v okolí, či případný networking',
-                start: '11:00',
-                end: '12:30',
-            },
-            {
-                name: 'Jakub Hájek',
-                description: 'Jak udělat dobrý projekt: UX výzkum jako základ úspěchu',
-                start: '12:30',
-                end: '13:15',
-            },
-            {
-                name: 'Pauza',
-                start: '13:15',
-                end: '13:30',
-            },
-            {
-                name: 'David Zelenka',
-                description: 'Monetizace sociálních sítí pomocí virtuálních influencerů',
-                start: '13:30',
-                end: '14:15',
-            },
-            {
-                name: 'Svačina',
-                description: 'Doplnění energie a networking',
-                start: '14:15',
-                end: '15:15',
-            },
-            {
-                name: 'Marian Benčat',
-                description: 'Jak se dělá obrovský wysiwyg editor plný dynamických výpočtů a dědění',
-                start: '15:15',
-                end: '16:00',
-            },
-            {
-                name: 'Pauza',
-                start: '16:00',
-                end: '16:15',
-            },
-            {
-                name: 'Martin Laudát',
-                description: 'Figma na křižovatce osudu',
-                start: '16:15',
-                end: '17:00',
-            },
-            {
-                name: 'Závěr',
-                description: 'Přesun na after párty',
-                start: '17:00',
-                end: '18:00',
-            },
-            {
-                name: 'After párty',
-                description: 'Vedle v prostoru „Kavárna“',
-                start: '18:00',
-                end: '22:00',
-            }
-        ],
-    },
-    {
-        date: 'Stage 2',
-        dateTime: '2024-11-23',
-        summary:
-            'Menší sál',
-        timeSlots: [
-            {
-                name: 'Snídaně',
-                description: 'Kdo si přivstane, tak se může nasnídat a pokecat už ráno',
-                start: '8:00',
-                end: '9:00',
-            },
-            {
-                name: 'Úvod',
-                description: 'Úvodní slovo',
-                start: '9:00',
-                end: '9:15',
-            },
-            {
-                name: 'Petr Šťastný',
-                description: 'Databázový cluster MariaDB Galera',
-                start: '9:15',
-                end: '10:00',
-            },
-            {
-                name: 'Pauza',
-                start: '10:00',
-                end: '10:15',
-            },
-            {
-                name: 'Martin Hrabánek',
-                description: 'Co dělá z brandu lovebrand?',
-                start: '10:15',
-                end: '11:00',
-            },
-            {
-                name: 'Oběd',
-                description: 'Prostor na oběd - někde v okolí, či případný networking',
-                start: '11:00',
-                end: '12:30',
-            },
-            {
-                name: 'Petr Urban',
-                description: 'Mobilní aplikace: Nativní nebo multiplatformní vývoj?',
-                start: '12:30',
-                end: '13:15',
-            },
-            {
-                name: 'Pauza',
-                start: '13:15',
-                end: '13:30',
-            },
-            {
-                name: 'Panelová diskuze DEV',
-                description: 'Jan Svěrák a jeho hosté',
-                start: '13:30',
-                end: '14:30',
-            },
-            {
-                name: 'Svačina',
-                description: 'Doplnění energie a networking',
-                start: '14:30',
-                end: '15:00',
-            },
-            {
-                name: 'Panelová diskuze MKT',
-                description: 'Karel Hladiš a jeho hosté',
-                start: '15:00',
-                end: '16:00',
-            },
-            {
-                name: 'Pauza',
-                start: '16:00',
-                end: '16:15',
-            },
-            {
-                name: 'Štefan Földesi',
-                description: 'Jak se programuje programovací jazyk',
-                start: '16:15',
-                end: '17:00',
-            },
-            {
-                name: 'Závěr',
-                description: 'Přesun na after párty',
-                start: '17:00',
-                end: '18:00',
-            },
-            {
-                name: 'After párty',
-                description: 'Vedle v prostoru „Kavárna“',
-                start: '18:00',
-                end: '22:00',
-            }
-        ],
-    },
+const program = [
+  {
+    block: [
+      {
+        name: 'Snídaně',
+        description: 'Kdo si přivstane, tak se může nasnídat a pokecat už ráno',
+        start: '8:00',
+        end: '9:00',
+      },
+    ],
+  },
+  {
+    block: [
+      {
+        name: 'Úvodní slovo',
+        start: '9:00',
+        end: '9:15',
+      },
+    ],
+  },
+  {
+    block: [
+      {
+        stageName: 'Stage 1',
+        stageSize: 'Větší sál',
+        name: 'Jak se liší marketing ISIS, Talibánu a Al-Káidy?',
+        id: 'tomas-zahalka',
+        description: 'Tomáš Zahálka',
+        start: '9:15',
+        end: '10:00',
+      },
+      {
+        stageName: 'Stage 2',
+        stageSize: 'Menší sál',
+        name: 'Databázový cluster MariaDB Galera',
+        id: 'petr-stastny',
+        description: 'Petr Šťastný',
+        start: '9:15',
+        end: '10:00',
+      },
+    ],
+  },
+  {
+    block: [
+      {
+        name: 'Pauza',
+        start: '10:00',
+        end: '10:15',
+      },
+    ],
+  },
+  {
+    block: [
+      {
+        stageName: 'Stage 1',
+        stageSize: 'Větší sál',
+        name: 'echo "441 zájemců/měsíc bez HR" > devHiring.txt',
+        id: 'dalibor-jaros',
+        description: 'Dalibor Jaroš',
+        start: '10:15',
+        end: '11:00',
+      },
+      {
+        stageName: 'Stage 2',
+        stageSize: 'Menší sál',
+        name: 'Co dělá z brandu lovebrand?',
+        id: 'martin-hrabanek',
+        description: 'Martin Hrabánek',
+        start: '10:15',
+        end: '11:00',
+      },
+    ],
+  },
+  {
+    block: [
+      {
+        name: 'Oběd',
+        description: 'Prostor na oběd - někde v okolí, či případný networking',
+        start: '11:00',
+        end: '12:30',
+      },
+    ],
+  },
+  {
+    block: [
+      {
+        stageName: 'Stage 1',
+        stageSize: 'Větší sál',
+        name: 'Jak udělat dobrý projekt: UX výzkum jako základ úspěchu',
+        id: 'jakub-hajek',
+        description: 'Jakub Hájek',
+        start: '12:30',
+        end: '13:15',
+      },
+      {
+        stageName: 'Stage 2',
+        stageSize: 'Menší sál',
+        name: 'Mobilní aplikace: Nativní nebo multiplatformní vývoj?',
+        id: 'petr-urban',
+        description: 'Petr Urban',
+        start: '12:30',
+        end: '13:15',
+      },
+    ],
+  },
+  {
+    block: [
+      {
+        name: 'Pauza',
+        start: '13:15',
+        end: '13:30',
+      },
+    ],
+  },
+  {
+    block: [
+      {
+        stageName: 'Stage 1',
+        stageSize: 'Větší sál',
+        name: 'Monetizace sociálních sítí pomocí virtuálních influencerů',
+        id: 'david-zelenka',
+        description: 'David Zelenka',
+        start: '13:30',
+        end: '14:15',
+      },
+      {
+        stageName: 'Stage 2',
+        stageSize: 'Menší sál',
+        name: 'Panelová diskuze DEV',
+        description: 'Jan Svěrák a jeho hosté',
+        start: '13:30',
+        end: '14:30',
+      },
+    ],
+  },
+  {
+    block: [
+      {
+        name: 'Svačina',
+        description: 'Doplnění energie a networking',
+        start: '14:30 (resp. 14:15)',
+        end: '15:00 (resp. 15:15)',
+      },
+    ],
+  },
+  {
+    block: [
+      {
+        stageName: 'Stage 1',
+        stageSize: 'Větší sál',
+        name: 'Jak se dělá obrovský wysiwyg editor plný dynamických výpočtů a dědění',
+        id: 'marian-bencat',
+        description: 'Marian Benčat',
+        start: '15:15',
+        end: '16:00',
+      },
+      {
+        stageName: 'Stage 2',
+        stageSize: 'Menší sál',
+        name: 'Panelová diskuze MKT',
+        description: 'Karel Hladiš a jeho hosté',
+        start: '15:00',
+        end: '16:00',
+      },
+    ],
+  },
+  {
+    block: [
+      {
+        name: 'Pauza',
+        start: '16:00',
+        end: '16:15',
+      },
+    ],
+  },
+  {
+    block: [
+      {
+        stageName: 'Stage 1',
+        stageSize: 'Větší sál',
+        name: 'Figma na křižovatce osudu',
+        id: 'martin-laudat',
+        description: 'Martin Laudát',
+        start: '16:15',
+        end: '17:00',
+      },
+      {
+        stageName: 'Stage 2',
+        stageSize: 'Menší sál',
+        name: 'Jak se programuje programovací jazyk',
+        id: 'stefan-foldesi',
+        description: 'Štefan Földesi',
+        start: '16:15',
+        end: '17:00',
+      },
+    ],
+  },
+  {
+    block: [
+      {
+        name: 'Zakončení',
+        start: '17:00',
+        end: '18:00',
+      },
+    ],
+  },
+  {
+    block: [
+      {
+        stageName: 'Prostor „Kavárna“',
+        name: 'Večírek + after párty',
+        start: '18:00',
+        end: '22:00',
+      },
+    ],
+  },
 ]
 
-function ScheduleTabbed() {
-    let [tabOrientation, setTabOrientation] = useState('horizontal')
+function ProgramTable({ timeBlock }) {
+  const blockWidth = timeBlock.block.length <= 1 ? 'col-span-2' : ''
 
-    useEffect(() => {
-        let smMediaQuery = window.matchMedia('(min-width: 640px)')
-
-        function onMediaQueryChange({matches}) {
-            setTabOrientation(matches ? 'vertical' : 'horizontal')
-        }
-
-        onMediaQueryChange(smMediaQuery)
-        smMediaQuery.addEventListener('change', onMediaQueryChange)
-
-        return () => {
-            smMediaQuery.removeEventListener('change', onMediaQueryChange)
-        }
-    }, [])
-
-    return (
-        <TabGroup
-            className="mx-auto grid max-w-2xl grid-cols-1 gap-y-6 sm:grid-cols-2 md:hidden"
-            vertical={tabOrientation === 'vertical'}
+  return (
+    <div className="grid auto-rows-auto grid-cols-2 py-6 first:!bg-white/60 odd:bg-white md:px-6 md:py-6 [&:nth-child(2)]:bg-white">
+      {timeBlock.block.map((stage, i) => (
+        <div
+          id={stage.id}
+          className={`${blockWidth} flex flex-col border-r px-4 text-center last:border-r-0 sm:px-8`}
+          key={i}
         >
-            <TabList
-                className="-mx-4 flex gap-x-4 gap-y-10 overflow-x-auto pb-4 pl-4 sm:mx-0 sm:flex-col sm:pb-0 sm:pl-0 sm:pr-8">
-                {({selectedIndex}) => (
-                    <>
-                        {schedule.map((day, dayIndex) => (
-                            <div
-                                key={day.dateTime}
-                                className={clsx(
-                                    'relative w-3/4 flex-none pr-4 sm:w-auto sm:pr-0',
-                                    dayIndex !== selectedIndex && 'opacity-70',
-                                )}
-                            >
-                                <DaySummary
-                                    day={{
-                                        ...day,
-                                        date: (
-                                            <Tab className="ui-not-focus-visible:outline-none">
-                                                <span className="absolute inset-0"/>
-                                                {day.date}
-                                            </Tab>
-                                        ),
-                                    }}
-                                />
-                            </div>
-                        ))}
-                    </>
-                )}
-            </TabList>
-            <TabPanels>
-                {schedule.map((day) => (
-                    <TabPanel
-                        key={day.dateTime}
-                        className="ui-not-focus-visible:outline-none"
-                    >
-                        <TimeSlots day={day}/>
-                    </TabPanel>
-                ))}
-            </TabPanels>
-        </TabGroup>
-    )
-}
+          <h4 className="mb-2 font-semibold tracking-tight text-primary-900 sm:text-lg">
+            {stage.name}
+            {/* {stage.stageSize} */}
+          </h4>
 
-function DaySummary({day}) {
-    return (
-        <>
-            <h3 className="text-2xl font-semibold tracking-tight text-primary-900">
-                <time dateTime={day.dateTime}>{day.date}</time>
-            </h3>
-            <p className="mt-1.5 text-base tracking-tight text-primary-900">
-                {day.summary}
+          {stage.description && (
+            <p className="mb-4 tracking-tight text-slate-600">
+              {stage.description}
             </p>
-        </>
-    )
-}
+          )}
 
-function TimeSlots({day, className}) {
-    return (
-        <ol
-            role="list"
-            className={clsx(
-                className,
-                'space-y-8 bg-white/60 px-10 py-14 text-center shadow-xl shadow-primary-900/5 backdrop-blur',
-            )}
-        >
-            {day.timeSlots.map((timeSlot, timeSlotIndex) => (
-                <li
-                    key={timeSlot.start}
-                    aria-label={`${timeSlot.name} talking about ${timeSlot.description} at ${timeSlot.start} - ${timeSlot.end}`}
-                >
-                    {timeSlotIndex > 0 && (
-                        <div className="mx-auto mb-8 h-px w-48 bg-primary-500/10"/>
-                    )}
-                    <h4 className="text-lg font-semibold tracking-tight text-primary-900">
-                        {timeSlot.name}
-                    </h4>
-                    {timeSlot.description && (
-                        <p className="mt-1 tracking-tight text-primary-900">
-                            {timeSlot.description}
-                        </p>
-                    )}
-                    <p className="mt-1 font-mono text-sm text-slate-500">
-                        <time dateTime={`${day.dateTime}T${timeSlot.start}-08:00`}>
-                            {timeSlot.start}
-                        </time>
-                        {' '}
-                        -{' '}
-                        <time dateTime={`${day.dateTime}T${timeSlot.end}-08:00`}>
-                            {timeSlot.end}
-                        </time>
-                    </p>
-                </li>
-            ))}
-        </ol>
-    )
+          <div className="mt-auto font-mono text-sm text-slate-600">
+            {stage.stageName}
+          </div>
+
+          <p className="font-mono text-sm text-slate-600">
+            <time dateTime={`T${stage.start}-08:00`}>{stage.start}</time> -{' '}
+            <time dateTime={`T${stage.end}-08:00`}>{stage.end}</time>
+          </p>
+        </div>
+      ))}
+    </div>
+  )
 }
 
 function ScheduleStatic() {
-    return (
-        <div className="hidden md:grid md:grid-cols-2 md:gap-x-8">
-            {schedule.map((day) => (
-                <section key={day.dateTime}>
-                    <DaySummary day={day}/>
-                    <TimeSlots day={day} className="mt-10"/>
-                </section>
-            ))}
-        </div>
-    )
+  return (
+    <div className="mx-auto flex max-w-4xl flex-col overflow-hidden rounded-3xl bg-white/60 shadow-xl shadow-primary-900/5 backdrop-blur">
+      {program.map((stage, i) => (
+        <ProgramTable timeBlock={stage} key={i} />
+      ))}
+    </div>
+  )
 }
 
 export function Schedule() {
-    return (
-        <section id="schedule" aria-label="Schedule" className="py-20 sm:py-32">
-            <Container className="relative z-10">
-                <div className="mx-auto max-w-2xl md:mx-0 md:max-w-4xl md:pr-24">
-                    <h2 className="font-display text-4xl font-medium tracking-tighter text-primary-600 sm:text-5xl">
-                        Program
-                    </h2>
-                </div>
-            </Container>
-            <div className="relative mt-14 sm:mt-24">
-                <BackgroundImage position="right" className="-bottom-32 -top-40"/>
-                <Container className="relative">
-                    <ScheduleTabbed/>
-                    <ScheduleStatic/>
-                </Container>
-            </div>
-        </section>
-    )
+  return (
+    <Section className="relative" id="program">
+      <Container className="relative z-10">
+        <header className="text-center">
+          <h2 className="mb-4 font-display text-4xl font-medium tracking-tighter text-primary-600 sm:text-5xl">
+            Program
+          </h2>
+        </header>
+      </Container>
+      <div className="relative mt-8 text-center sm:mt-14">
+        <BackgroundImage position="left" className="-bottom-32 -top-40" />
+        <Container className="relative">
+          <ScheduleStatic />
+          <BuyTicketButton className="mt-8" />
+        </Container>
+      </div>
+    </Section>
+  )
 }
