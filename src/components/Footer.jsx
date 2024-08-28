@@ -7,7 +7,7 @@ export function Footer() {
             <Container className="flex flex-col items-center justify-between gap-6">
                 <Logo className="h-12 w-auto text-slate-900"/>
                 <p className="text-base text-slate-500 md:mt-0">
-                    &copy; {new Date().getFullYear()} <a href="https://ctvrtkon.cz" class="hover:text-slate-900" target="_blank">Čtvrtkon z.s.</a>
+                    &copy; {new Date().getFullYear()} <a href="https://ctvrtkon.cz" className="hover:text-slate-900" target="_blank">Čtvrtkon z.s.</a>
                 </p>
             </Container>
         </footer>

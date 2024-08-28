@@ -262,8 +262,8 @@ function ProgramTable({ timeBlock }) {
 function ScheduleStatic() {
   return (
     <div className="mx-auto flex max-w-4xl flex-col overflow-hidden rounded-3xl bg-white/60 shadow-xl shadow-primary-900/5 backdrop-blur">
-      {program.map((stage) => (
-        <ProgramTable timeBlock={stage} />
+      {program.map((stage, i) => (
+        <ProgramTable timeBlock={stage} key={i} />
       ))}
     </div>
   )

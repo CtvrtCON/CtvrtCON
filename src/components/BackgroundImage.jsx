@@ -27,7 +27,6 @@ export function BackgroundImage({className, position = 'top'}) {
                 height={1495}
                 priority
                 unoptimized
-                pointer-events-none
             />
             <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-white pointer-events-none"/>
             <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-white pointer-events-none"/>
