@@ -1,5 +1,5 @@
 import { BackgroundImage } from '@/components/BackgroundImage'
-import { Button } from '@/components/Button'
+import { BuyTicketButton } from '@/components/BuyTicketButton'
 import { Container } from '@/components/Container'
 import { Section } from '@/components/Section'
 
@@ -60,9 +60,7 @@ export function Hero() {
             ))}
           </dl>
           <div className="mt-4 flex flex-wrap items-center gap-4">
-            <Button className="cursor-not-allowed" disabled>
-              Koupit vstupenku - již brzy!
-            </Button>
+            <BuyTicketButton />
             <a
               className="inline-flex justify-center rounded-lg border-2 border-primary-600 p-4 text-base font-semibold text-primary-600 hover:border-primary-500 hover:bg-primary-500 hover:text-white focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500 active:text-white/70 disabled:bg-gray-600"
               href="#program"

@@ -1,4 +1,4 @@
-import {Button} from '@/components/Button'
+import {BuyTicketButton} from '@/components/BuyTicketButton'
 import {Container} from '@/components/Container'
 import {Logo} from '@/components/Logo'
 
@@ -11,7 +11,7 @@ export function Header() {
                 </div>
                
                 <div className="hidden sm:flex lg:grow lg:basis-0 lg:justify-end">
-                    <Button className="cursor-not-allowed" disabled>Koupit vstupenku - již brzy!</Button>
+                    <BuyTicketButton />
                 </div>
             </Container>
         </header>

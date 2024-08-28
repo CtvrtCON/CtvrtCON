@@ -1,13 +1,12 @@
 'use client'
 
-import { useEffect, useId, useState } from 'react'
+import { useId } from 'react'
 import Image from 'next/image'
-import { Tab, TabGroup, TabList, TabPanel, TabPanels } from '@headlessui/react'
+import { TabGroup, TabPanel, TabPanels } from '@headlessui/react'
 import clsx from 'clsx'
 
 import { Container } from '@/components/Container'
 import { Section } from '@/components/Section'
-//import defaultImage from '@/images/avatars/default.webp'
 import daliborjarosImage from '@/images/avatars/daliborjaros.webp'
 import davidzelenkaImage from '@/images/avatars/davidzelenka.webp'
 import jakubhajekImage from '@/images/avatars/jakubhajek.webp'
@@ -56,7 +55,7 @@ const days = [
         name: 'Martin Hrabánek',
         url: '#martin-hrabanek',
         role: 'Brand designer',
-        company: 'Brandtastic',
+        company: 'Brandtastic!',
         image: martinhrabanekImage,
       },
       {

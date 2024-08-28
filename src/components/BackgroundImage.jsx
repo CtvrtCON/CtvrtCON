@@ -22,7 +22,7 @@ export function BackgroundImage({className, position = 'top'}) {
                     'hidden sm:block sm:left-1/2 sm:anslate-x-[6%] sm:translate-y-[26%]',
                 )}
                 src={backgroundImage}
-                alt=""
+                alt="ČtvrtCON fluida"
                 width={918}
                 height={1495}
                 priority

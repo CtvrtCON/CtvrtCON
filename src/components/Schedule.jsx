@@ -1,13 +1,9 @@
 'use client'
 
-import { useEffect, useState } from 'react'
-import { Tab, TabGroup, TabList, TabPanel, TabPanels } from '@headlessui/react'
-import clsx from 'clsx'
-
 import { BackgroundImage } from '@/components/BackgroundImage'
 import { Container } from '@/components/Container'
 import { Section } from '@/components/Section'
-import { Button } from '@/components/Button'
+import { BuyTicketButton } from '@/components/BuyTicketButton'
 
 const program = [
   {
@@ -23,8 +19,6 @@ const program = [
   {
     block: [
       {
-        stageName: 'Stage 1',
-        stageSize: 'Větší sál',
         name: 'Úvodní slovo',
         start: '9:00',
         end: '9:15',
@@ -151,8 +145,8 @@ const program = [
       {
         name: 'Svačina',
         description: 'Doplnění energie a networking',
-        start: '14:30',
-        end: '15:00',
+        start: '14:30 (resp. 14:15)',
+        end: '15:00 (resp. 15:15)',
       },
     ],
   },
@@ -211,9 +205,7 @@ const program = [
   {
     block: [
       {
-        stageName: 'Stage 1',
-        stageSize: 'Větší sál',
-        name: 'Závěr',
+        name: 'Zakončení',
         start: '17:00',
         end: '18:00',
       },
@@ -223,7 +215,7 @@ const program = [
     block: [
       {
         stageName: 'Prostor „Kavárna“',
-        name: 'After párty',
+        name: 'Večírek + after párty',
         start: '18:00',
         end: '22:00',
       },
@@ -291,9 +283,7 @@ export function Schedule() {
         <BackgroundImage position="left" className="-bottom-32 -top-40" />
         <Container className="relative">
           <ScheduleStatic />
-          <Button className="mt-8 cursor-not-allowed" disabled>
-            Koupit vstupenku - již brzy!
-          </Button>
+          <BuyTicketButton className="mt-8" />
         </Container>
       </div>
     </Section>
