@@ -145,8 +145,8 @@ const program = [
       {
         name: 'Svačina',
         description: 'Doplnění energie a networking',
-        start: '14:30 (resp. 14:15)',
-        end: '15:00 (resp. 15:15)',
+        start: '14:15',
+        end: '15:15',
       },
     ],
   },
