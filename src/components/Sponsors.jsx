@@ -7,9 +7,9 @@ import jrFoodLogo from '@/images/partners/jr-food.png'
 import briloLogo from '@/images/partners/brilo.png'
 import eshopRychleLogo from '@/images/partners/eshop-rychle.png'
 import engelLogo from '@/images/partners/engel.png'
+import headersLogo from '@/images/partners/headers.png'
 import inizioLogo from '@/images/partners/inizio.png'
 import marianBencatLogo from '@/images/partners/marian-bencat.png'
-import nwuLogo from '@/images/partners/nwu.png'
 import smartEmailingLogo from '@/images/partners/smartemailing.png'
 import ticketsGpLogo from '@/images/partners/tickets-gp.png'
 import tomasZahalkaLogo from '@/images/partners/tomas-zahalka.png'
@@ -25,9 +25,9 @@ const sponsors = [
     {name: 'Brilo Team', logo: briloLogo,url:'https://www.brilo.team/'},
     {name: 'E-shop Rychle', logo: eshopRychleLogo,url:'https://www.eshop-rychle.cz/'},
     {name: 'Engel', logo: engelLogo,url:'https://www.pracevengelu.cz/'},
+    {name: 'Headers', logo: headersLogo,url:'https://www.headers.cz/'},
     {name: 'Inizio', logo: inizioLogo,url:'https://www.inizio.cz/'},
     {name: 'Marian Benčat', logo: marianBencatLogo,url:'https://www.linkedin.com/in/marian-ben%C4%8Dat-a832b794'},
-    {name: 'NWU', logo: nwuLogo,url:'https://www.nwu.cz/'},
     {name: 'Smart Emailing', logo: smartEmailingLogo,url:'https://www.smartemailing.cz/'},
     {name: 'TicketsGP', logo: ticketsGpLogo,url:'https://www.tickets.gp/'},
     {name: 'Tomáš Zahálka', logo: tomasZahalkaLogo,url:'https://tomaszahalka.cz/'},
