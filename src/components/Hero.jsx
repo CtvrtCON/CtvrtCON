@@ -26,7 +26,7 @@ export function Hero() {
             </div>
           </div>
           <div className="text-primary-900">
-            <p className="mb-2">
+            <p className="mb-4">
               Historicky první celodenní konference pro celou komunitu
               Čtvrtkonu.
               <br />
@@ -34,14 +34,21 @@ export function Hero() {
               <br />
               Development (DEV), Marketing (MKT), Design (DSN).
             </p>
-            <p>
+            <p className="mb-4">
               Čekají na Vás dva sály s přednáškami souběžně a přestávky na
               networking.
               <br />
               Než to začne, tak si dáme snídani a odpoledne bude připravena
               svačina.
-              <br />A kdo bude chtít, tak může pokračovat na after párty přímo
-              na místě.
+              <br />
+              A kdo bude chtít, tak může pokračovat na after párty přímo na místě.
+            </p>
+            <p className="mb-4">
+              Součástí vstupenky na konferenci je občerstvení v podobě ranní snídaně a odpolední svačiny.
+              <br />
+              Oběd v ceně vstupenky není zahrnut, ale bude dost času zajít někam v okolí.
+              <br />
+              Součástí vstupenky na after párty je raut, pivo, víno.
             </p>
           </div>
           <dl className="grid grid-cols-2 gap-x-4 gap-y-6 sm:gap-x-16 sm:gap-y-10 lg:auto-cols-auto lg:grid-flow-col lg:grid-cols-none lg:justify-start lg:text-left">
