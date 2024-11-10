@@ -61,9 +61,9 @@ const program = [
       {
         stageName: 'Stage 1',
         stageSize: 'Větší sál',
-        name: 'echo "441 zájemců/měsíc bez HR" > devHiring.txt',
-        id: 'dalibor-jaros',
-        description: 'Dalibor Jaroš',
+        name: 'Profilování a optimalizace v Pythonu: když na výkonu záleží',
+        id: 'martin-vastl',
+        description: 'Martin Vastl',
         start: '10:15',
         end: '11:00',
       },
@@ -133,8 +133,9 @@ const program = [
       {
         stageName: 'Stage 2',
         stageSize: 'Menší sál',
-        name: 'Panelová diskuze DEV',
-        description: 'Jan Svěrák a jeho hosté',
+        name: 'Panelová diskuze DEV - Jan Svěrák',
+        description: 'Obě strany mince - tvorba UI z pohledu designu a frontendu',
+        guests: 'Jakub Jetleb, Kateřina N. Voláková, Martin Laudát, Jakub Hájek',
         start: '13:30',
         end: '14:30',
       },
@@ -164,8 +165,9 @@ const program = [
       {
         stageName: 'Stage 2',
         stageSize: 'Menší sál',
-        name: 'Panelová diskuze MKT',
-        description: 'Karel Hladiš a jeho hosté',
+        name: 'Panelová diskuze MKT - Karel Hladiš',
+        description: 'Jak se liší “úspěšný” e-shop od toho “neúspěšného”?',
+        guests: 'Tomáš Zahálka, Petr Voves, Jan Brož',
         start: '15:00',
         end: '16:00',
       },
@@ -242,6 +244,12 @@ function ProgramTable({ timeBlock }) {
           {stage.description && (
             <p className="mb-4 tracking-tight text-slate-600">
               {stage.description}
+            </p>
+          )}
+
+          {stage.guests && (
+            <p className="mb-4 tracking-tight text-slate-600">
+              Hosté: {stage.guests}
             </p>
           )}
 

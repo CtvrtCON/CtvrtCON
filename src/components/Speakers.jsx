@@ -7,12 +7,13 @@ import clsx from 'clsx'
 
 import { Container } from '@/components/Container'
 import { Section } from '@/components/Section'
-import daliborjarosImage from '@/images/avatars/daliborjaros.webp'
+//import daliborjarosImage from '@/images/avatars/daliborjaros.webp'
 import davidzelenkaImage from '@/images/avatars/davidzelenka.webp'
 import jakubhajekImage from '@/images/avatars/jakubhajek.webp'
 import marianbencatImage from '@/images/avatars/marianbencat.webp'
 import martinhrabanekImage from '@/images/avatars/martinhrabanek.webp'
 import martinlaudatImage from '@/images/avatars/martinlaudat.webp'
+import martinvastlImage from '@/images/avatars/martinvastl.webp'
 import petrstastnyImage from '@/images/avatars/petrstastny.webp'
 import petrurbanImage from '@/images/avatars/petrurban.webp'
 import stefanfoldesiImage from '@/images/avatars/stefanfoldesi.webp'
@@ -23,13 +24,6 @@ const days = [
     name: 'Speakers',
     dateTime: '2024-11-23',
     speakers: [
-      {
-        name: 'Dalibor Jaroš',
-        url: '#dalibor-jaros',
-        role: 'Výkonný ředitel zahraničních projektů & CEO Collabimu',
-        company: 'INIZIO Internet Media s.r.o.',
-        image: daliborjarosImage,
-      },
       {
         name: 'David Zelenka',
         url: '#david-zelenka',
@@ -64,6 +58,13 @@ const days = [
         role: 'Lead Product Designer & Design System Manager',
         company: 'Dotidot',
         image: martinlaudatImage,
+      },
+      {
+        name: 'Martin Vastl',
+        url: '#martin-vastl',
+        role: 'Nezávislý machine learning engineer a researcher',
+        company: '',
+        image: martinvastlImage,
       },
       {
         name: 'Petr	Šťastný',
