@@ -61,7 +61,7 @@ const program = [
       {
         stageName: 'Stage 1',
         stageSize: 'Větší sál',
-        name: 'Profilování a optimalizace v Pythonu: když na výkonu záleží',
+        name: 'Profilování a optimalizace v Pythonu: Když na výkonu záleží',
         id: 'martin-vastl',
         description: 'Martin Vastl',
         start: '10:15',
