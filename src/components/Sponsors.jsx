@@ -10,6 +10,7 @@ import engelLogo from '@/images/partners/engel.png'
 import headersLogo from '@/images/partners/headers.png'
 import inizioLogo from '@/images/partners/inizio.png'
 import marianBencatLogo from '@/images/partners/marian-bencat.png'
+import naucimeAiLogo from '@/images/partners/naucime-ai.png'
 import smartEmailingLogo from '@/images/partners/smartemailing.png'
 import ticketsGpLogo from '@/images/partners/tickets-gp.png'
 import tomasZahalkaLogo from '@/images/partners/tomas-zahalka.png'
@@ -28,6 +29,7 @@ const sponsors = [
     {name: 'Headers', logo: headersLogo,url:'https://www.headers.cz/'},
     {name: 'Inizio', logo: inizioLogo,url:'https://www.inizio.cz/'},
     {name: 'Marian Benčat', logo: marianBencatLogo,url:'https://www.linkedin.com/in/marian-ben%C4%8Dat-a832b794'},
+    {name: 'Naučíme.AI', logo: naucimeAiLogo,url:'https://naucime.ai'},
     {name: 'Smart Emailing', logo: smartEmailingLogo,url:'https://www.smartemailing.cz/'},
     {name: 'TicketsGP', logo: ticketsGpLogo,url:'https://www.tickets.gp/'},
     {name: 'Tomáš Zahálka', logo: tomasZahalkaLogo,url:'https://tomaszahalka.cz/'},
@@ -58,7 +60,7 @@ export function Sponsors() {
                     ))}
                 </div>
                 <div
-                   className="grid grid-cols-2 gap-x-12 gap-y-6 ui-not-focus-visible:outline-none sm:gap-x-12 md:gap-y-6 md:gap-x-24 md:gap-y-12 md:grid-cols-5">
+                   className="grid grid-cols-2 gap-x-12 gap-y-6 ui-not-focus-visible:outline-none sm:gap-x-12 md:gap-y-6 md:gap-x-24 md:gap-y-12 md:grid-cols-4">
                     {sponsors.map((sponsor) => (
                         <a
                             href={sponsor.url}
